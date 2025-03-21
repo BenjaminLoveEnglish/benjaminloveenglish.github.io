@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客户旅程 - 从广告到忠诚</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    
+    .slide-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+      position: relative;
+    }
+    
+    .slide {
+      display: none;
+      padding: 40px;
+      height: 500px;
+      position: relative;
+    }
+    
+    .slide.active {
+      display: block;
+    }
+    
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .slide-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .slide-number {
+      font-size: 20px;
+      color: #999;
+    }
+    
+    .slide-content {
+      display: flex;
+      height: 380px;
+    }
+    
+    .slide-text {
+      flex: 1;
+      padding-right: 20px;
+    }
+    
+    .slide-image {
+      flex: 1;
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .slide-image img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    
+    h2 {
+      color: #e63946;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    
+    ul {
+      padding-left: 20px;
+    }
+    
+    li {
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    
+    .bold {
+      font-weight: bold;
+    }
+    
+    .highlight {
+      color: #e63946;
+    }
+    
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px;
+    }
+    
+    .nav-button {
+      padding: 10px 15px;
+      background-color: #1d3557;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-button:hover {
+      background-color: #16293f;
+    }
+    
+    .nav-button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    
+    .dots {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+    
+    .dot {
+      width: 12px;
+      height: 12px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    
+    .dot.active {
+      background-color: #1d3557;
+    }
+    
+    .icon-area {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    .icon {
+      width: 80px;
+      height: 80px;
+      background-color: #f1faee;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .icon-symbol {
+      font-size: 40px;
+      color: #e63946;
+    }
+    
+    @media (max-width: 768px) {
+      .slide {
+        padding: 20px;
+        height: auto;
+      }
+      
+      .slide-content {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .slide-text {
+        padding-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <!-- 幻灯片1: 封面 -->
+    <div class="slide active" id="slide1">
+      <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <h1 style="font-size: 32px; margin-bottom: 20px; color: #1d3557;">客户旅程：从广告到忠诚</h1>
+        <div style="width: 80px; height: 4px; background-color: #e63946; margin-bottom: 30px;"></div>
+        <p style="font-size: 20px; color: #666; margin-bottom: 40px;">Lumaflex 红光理疗 营销漏斗解析</p>
+        <div style="width: 120px; height: 120px; background-color: #f1faee; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 30px;">
+          <span style="font-size: 60px; color: #e63946;">🔴</span>
+        </div>
+        <p style="font-style: italic; color: #999;">点击下方按钮或圆点导航浏览幻灯片</p>
+      </div>
+    </div>
+    
+    <!-- 幻灯片2: 第一阶段 - 认知 -->
+    <div class="slide" id="slide2">
+      <div class="slide-header">
+        <div class="slide-title">第一阶段：认知</div>
+        <div class="slide-number">1/7</div>
+      </div>
+      
+      <div class="icon-area">
+        <div class="icon">
+          <div class="icon-symbol">👁️</div>
+        </div>
+      </div>
+      
+      <div class="slide-content">
+        <div class="slide-text">
+          <h2>客户首次遇见我们的品牌</h2>
+          <ul>
+            <li><span class="bold">社交媒体广告</span> - 精准定向Instagram和Facebook广告，展示产品在实际使用场景中的效果</li>
+            <li><span class="bold">搜索引擎广告</span> - 针对"红光理疗"、"疼痛缓解方法"等关键词的Google广告</li>
+            <li><span class="bold">影响者合作</span> - 健康与健身博主展示产品使用体验和效果</li>
+            <li><span class="bold">科普内容</span> - 发布关于红光理疗科学原理的教育性文章，建立专业可信度</li>
+          </ul>
+          <p><span class="highlight">关键目标：</span> 让潜在客户了解红光理疗技术及我们的品牌，引发初步兴趣</p>
+        </div>
+        <div class="slide-image">
+          <img src="/api/placeholder/400/320" alt="社交媒体广告示例">
+        </div>
+      </div>
+    </div>
+    
+    <!-- 幻灯片3: 第二阶段 - 兴趣 -->
+    <div class="slide" id="slide3">
+      <div class="slide-header">
+        <div class="slide-title">第二阶段：兴趣</div>
+        <div class="slide-number">2/7</div>
+      </div>
+      
+      <div class="icon-area">
+        <div class="icon">
+          <div class="icon-symbol">🔍</div>
+        </div>
+      </div>
+      
+      <div class="slide-content">
+        <div class="slide-text">
+          <h2>客户开始主动探索我们的产品</h2>
+          <ul>
+            <li><span class="bold">访问网站</span> - 浏览产品页面，了解详细功能和规格</li>
+            <li><span class="bold">下载指南</span> - 提供电子邮箱获取《红光理疗完全指南》免费电子书</li>
+            <li><span class="bold">观看视频</span> - 查看产品演示、用户见证和科学原理讲解视频</li>
+            <li><span class="bold">关注社交媒体</span> - 开始关注品牌账号，接收更多内容更新</li>
+          </ul>
+          <p><span class="highlight">关键目标：</span> 收集潜在客户联系信息，深化对产品价值的理解</p>
+        </div>
+        <div class="slide-image">
+          <img src="/api/placeholder/400/320" alt="网站产品页面">
+        </div>
+      </div>
+    </div>
+    
+    <!-- 幻灯片4: 第三阶段 - 考虑 -->
+    <div class="slide" id="slide4">
+      <div class="slide-header">
+        <div class="slide-title">第三阶段：考虑</div>
+        <div class="slide-number">3/7</div>
+      </div>
+      
+      <div class="icon-area">
+        <div class="icon">
+          <div class="icon-symbol">⚖️</div>
+        </div>
+      </div>
+      
+      <div class="slide-content">
+        <div class="slide-text">
+          <h2>客户评估我们的产品是否适合他们</h2>
+          <ul>
+            <li><span class="bold">邮件序列</span> - 收到一系列针对性邮件，解答常见问题，分享成功案例</li>
+            <li><span class="bold">再营销广告</span> - 在社交媒体和网站上看到产品再营销广告</li>
+            <li><span class="bold">产品对比</span> - 查看我们的产品与竞品或替代方案的对比分析</li>
+            <li><span class="bold">参加网络研讨会</span> - 加入在线演示和问答环节</li>
+          </ul>
+          <p><span class="highlight">关键目标：</span> 解决客户疑虑，强化价值主张，建立信任</p>
+        </div>
+        <div class="slide-image">
+          <img src="/api/placeholder/400/320" alt="产品对比图表">
+        </div>
+      </div>
+    </div>
+    
+    <!-- 幻灯片5: 第四阶段 - 转化 -->
+    <div class="slide" id="slide5">
+      <div class="slide-header">
+        <div class="slide-title">第四阶段：转化</div>
+        <div class="slide-number">4/7</div>
+      </div>
+      
+      <div class="icon-area">
+        <div class="icon">
+          <div class="icon-symbol">🛒</div>
+        </div>
+      </div>
+      
+      <div class="slide-content">
+        <div class="slide-text">
+          <h2>客户决定购买我们的产品</h2>
+          <ul>
+            <li><span class="bold">限时优惠</span> - 收到首次购买折扣码或限时特惠</li>
+            <li><span class="bold">简化结账</span> - 体验顺畅的购买流程，包括多种支付选项</li>
+            <li><span class="bold">增值服务</span> - 看到免费赠品、延长保修或分期付款等额外价值</li>
+            <li><span class="bold">风险消除</span> - 了解到90天满意保证，降低购买顾虑</li>
+          </ul>
+          <p><span class="highlight">关键目标：</span> 移除购买障碍，创造紧迫感，促成交易完成</p>
+        </div>
+        <div class="slide-image">
+          <img src="/api/placeholder/400/320" alt="购买页面和优惠信息">
+        </div>
+      </div>
+    </div>
+    
+    <!-- 幻灯片6: 第五阶段 - 体验 -->
+    <div class="slide" id="slide6">
+      <div class="slide-header">
+        <div class="slide-title">第五阶段：体验</div>
+        <div class="slide-number">5/7</div>
+      </div>
+      
+      <div class="icon-area">
+        <div class="icon">
+          <div class="icon-symbol">📦</div>
+        </div>
+      </div>
+      
+      <div class="slide-content">
+        <div class="slide-text">
+          <h2>客户收到并开始使用产品</h2>
+          <ul>
+            <li><span class="bold">确认沟通</span> - 收到订单确认、发货通知和追踪信息</li>
+            <li><span class="bold">精致包装</span> - 拆开精心设计的产品包装，获得高品质第一印象</li>
+            <li><span class="bold">入门指南</span> - 阅读随附的快速启动指南和使用手册</li>
+            <li><span class="bold">首次使用</span> - 按照推荐设置开始使用产品，体验初步效果</li>
+          </ul>
+          <p><span class="highlight">关键目标：</span> 确保客户获得积极的初次使用体验，减少退货可能性</p>
+        </div>
+        <div class="slide-image">
+          <img src="/api/placeholder/400/320" alt="产品包装和入门指南">
+        </div>
+      </div>
+    </div>
+    
+    <!-- 幻灯片7: 第六阶段 - 支持 -->
+    <div class="slide" id="slide7">
+      <div class="slide-header">
+        <div class="slide-title">第六阶段：支持</div>
+        <div class="slide-number">6/7</div>
+      </div>
+      
+      <div class="icon-area">
+        <div class="icon">
+          <div class="icon-symbol">🛠️</div>
+        </div>
+      </div>
+      
+      <div class="slide-content">
+        <div class="slide-text">
+          <h2>客户获得持续指导和支持</h2>
+          <ul>
+            <li><span class="bold">后续邮件</span> - 接收使用技巧、最佳实践和常见问题解答邮件</li>
+            <li><span class="bold">教学视频</span> - 观看详细的产品使用视频和针对特定需求的方案</li>
+            <li><span class="bold">客户服务</span> - 在需要时能够方便联系客服团队获取帮助</li>
+            <li><span class="bold">社区分享</span> - 加入用户社区，与其他用户交流使用心得</li>
+          </ul>
+          <p><span class="highlight">关键目标：</span> 确保客户掌握正确使用方法，最大化产品价值</p>
+        </div>
+        <div class="slide-image">
+          <img src="/api/placeholder/400/320" alt="教学视频和客户支持">
+        </div>
+      </div>
+    </div>
+    
+    <!-- 幻灯片8: 第七阶段 - 忠诚 -->
+    <div class="slide" id="slide8">
+      <div class="slide-header">
+        <div class="slide-title">第七阶段：忠诚</div>
+        <div class="slide-number">7/7</div>
+      </div>
+      
+      <div class="icon-area">
+        <div class="icon">
+          <div class="icon-symbol">❤️</div>
+        </div>
+      </div>
+      
+      <div class="slide-content">
+        <div class="slide-text">
+          <h2>客户成为品牌忠实支持者</h2>
+          <ul>
+            <li><span class="bold">追踪进展</span> - 记录和分享使用产品后的健康改善效果</li>
+            <li><span class="bold">撰写评价</span> - 在网站和社交媒体上分享产品体验和效果</li>
+            <li><span class="bold">推荐朋友</span> - 通过推荐计划向朋友和家人推荐产品</li>
+            <li><span class="bold">购买配件</span> - 增购配件或升级到更高端的产品型号</li>
+          </ul>
+          <p><span class="highlight">关键目标：</span> 培养品牌倡导者，促进口碑营销和重复购买</p>
+        </div>
+        <div class="slide-image">
+          <img src="/api/placeholder/400/320" alt="客户分享和推荐">
+        </div>
+      </div>
+    </div>
+    
+    <!-- 导航按钮 -->
+    <div class="navigation">
+      <button id="prevBtn" class="nav-button" onclick="changeSlide(-1)" disabled>&lt; 上一页</button>
+      <button id="nextBtn" class="nav-button" onclick="changeSlide(1)">下一页 &gt;</button>
+    </div>
+    
+    <!-- 导航圆点 -->
+    <div class="dots">
+      <span class="dot active" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(7)"></span>
+      <span class="dot" onclick="currentSlide(8)"></span>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlide(slideIndex);
+
+    function changeSlide(n) {
+      showSlide(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlide(slideIndex = n);
+    }
+
+    function showSlide(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+      let prevBtn = document.getElementById("prevBtn");
+      let nextBtn = document.getElementById("nextBtn");
+      
+      if (n > slides.length) {slideIndex = slides.length}
+      if (n < 1) {slideIndex = 1}
+      
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      
+      // 禁用/启用导航按钮
+      prevBtn.disabled = slideIndex === 1;
+      nextBtn.disabled = slideIndex === slides.length;
+    }
+  </script>
+</body>
+</html>
