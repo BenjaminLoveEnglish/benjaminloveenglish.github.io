@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>营销漏斗PPT演示</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    .slide {
+      display: none;
+      padding: 40px;
+      height: 600px;
+      text-align: center;
+    }
+    
+    .slide-content {
+      max-width: 800px;
+      margin: auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .slide-header {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    
+    .slide-header h1 {
+      color: #0066cc;
+      margin: 0;
+      font-size: 28px;
+    }
+    
+    .slide-header p {
+      color: #666;
+      margin: 5px 0 0 0;
+      font-size: 18px;
+    }
+    
+    .slide-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .slide-body img {
+      max-width: 100%;
+      max-height: 300px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    
+    .nav-button {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .nav-button:hover {
+      background-color: #0052a3;
+    }
+    
+    .progress-indicator {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    
+    .progress-dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.5s ease;
+    }
+    
+    .progress-dot.active {
+      background-color: #0066cc;
+    }
+    
+    @media (max-width: 768px) {
+      .slide {
+        padding: 20px;
+        height: 500px;
+      }
+      
+      .slide-header h1 {
+        font-size: 22px;
+      }
+      
+      .slide-header p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+  <!-- 幻灯片1：Facebook广告（认知阶段） -->
+  <div class="slide" id="slide1">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第1步：Facebook广告（认知阶段）</h1>
+        <p>建筑工人在Facebook上看到Hmusic耳机广告</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="Facebook广告展示">
+        <p>"保护听力的同时不失联系 - 工地专业人士的必备装备！"</p>
+        <p>Hmusic工作防护耳机：25dB降噪 + 清晰通话 + IPX7防水 + 80小时续航</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)" style="visibility: hidden;">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)">下一步：点击广告</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幻灯片2：博客内容（兴趣阶段开始） -->
+  <div class="slide" id="slide2">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第2步：博客内容</h1>
+        <p>用户点击广告后阅读关于听力保护的专业内容</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="博客文章展示">
+        <h3>"建筑噪音如何永久损害听力：数据告诉你真相"</h3>
+        <p>文章详细解释了不同工具的噪音级别和长期危害，以及传统耳塞的局限性</p>
+        <p>页面底部有"获取完整工地听力保护指南"的注册入口</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)">下一步：输入邮箱</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幻灯片3：邮箱收集（兴趣阶段） -->
+  <div class="slide" id="slide3">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第3步：邮箱收集</h1>
+        <p>用户输入邮箱获取专业指南，进入邮件序列</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="邮箱收集表单">
+        <h3>免费获取《工地听力保护专业指南》</h3>
+        <p>用户输入邮箱以获取30页的专业指南，包含噪音风险评估和保护方案</p>
+        <p>这一步将用户纳入邮件营销序列，开始培养潜在客户</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)">下一步：收到第一封邮件</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幻灯片4：首封邮件（兴趣阶段） -->
+  <div class="slide" id="slide4">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第4步：首封邮件</h1>
+        <p>用户收到第一封教育性邮件，介绍传统耳塞的问题</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="邮件内容展示">
+        <h3>邮件主题：为什么传统耳塞可能让工地工作更危险？</h3>
+        <p>邮件内容：传统耳塞的安全隐患，智能降噪耳机的优势</p>
+        <p>邮件包含附件：用户请求的《工地听力保护专业指南》</p>
+        <p>结尾提示：即将发送更多关于25dB主动降噪技术的信息</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)">下一步：YouTube再营销</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幻灯片5：YouTube再营销（兴趣阶段） -->
+  <div class="slide" id="slide5">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第5步：YouTube再营销</h1>
+        <p>用户在YouTube上看到Hmusic耳机的实测视频广告</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="YouTube视频广告">
+        <h3>视频标题：工地降噪耳机实测：能否真正保护听力？</h3>
+        <p>视频内容：在实际工地环境中测试产品，展示降噪效果和通话质量</p>
+        <p>同时演示产品在电锯、混凝土搅拌机旁的使用效果</p>
+        <p>视频末尾有明确的产品链接，引导用户访问产品页面</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)">下一步：产品页面</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幻灯片6：产品页面（决策阶段） -->
+  <div class="slide" id="slide6">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第6步：产品页面</h1>
+        <p>用户访问详细的产品页面，了解产品特性和优势</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="产品页面">
+        <h3>Hmusic工作防护蓝牙颈挂式耳机</h3>
+        <p>页面包含：产品图片、主要特性、使用场景展示</p>
+        <p>社会证明：来自建筑工人的真实评价和使用体验</p>
+        <p>首次购买优惠：立减15%，显示"今日已有37位建筑专业人士购买"</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)">下一步：结账流程</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幻灯片7：结账流程（决策阶段） -->
+  <div class="slide" id="slide7">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第7步：结账流程</h1>
+        <p>用户进入简化的结账流程，完成订单</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="结账页面">
+        <h3>简化的一页式结账</h3>
+        <p>收集基本信息：姓名、邮箱、电话、地址</p>
+        <p>订单摘要：产品价格、首次购买折扣、总计金额</p>
+        <p>安全保障：60天无理由退换、2年质保、24小时客服</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)">下一步：订单确认</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幻灯片8：订单确认（忠诚阶段开始） -->
+  <div class="slide" id="slide8">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第8步：订单确认</h1>
+        <p>用户收到订单确认，开始转入忠诚阶段</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="订单确认页面">
+        <h3>订单已确认</h3>
+        <p>显示订单号和感谢信息</p>
+        <p>后续步骤提示：确认邮件、物流信息、预计送达时间</p>
+        <p>引导用户查看邮箱获取更多信息</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)">下一步：购后支持</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幻灯片9：购后支持（忠诚阶段） -->
+  <div class="slide" id="slide9">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第9步：购后支持</h1>
+        <p>用户收到一系列购后支持邮件，增强体验</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="购后支持流程">
+        <h3>购后邮件序列</h3>
+        <p>第1天: 订单确认 + 工地专业人士设置指南</p>
+        <p>第3天: 使用视频教程（最佳佩戴、音频设置、配对方法）</p>
+        <p>第14天: 体验调查 + 感谢奖励（下次购买折扣）</p>
+        <p>第30天: 配件推荐 + 老客户专属优惠</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)">下一步：社区参与</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 幻灯片10：社区参与（忠诚阶段） -->
+  <div class="slide" id="slide10">
+    <div class="slide-content">
+      <div class="slide-header">
+        <h1>第10步：社区参与</h1>
+        <p>邀请用户加入专业社区，建立品牌忠诚度</p>
+      </div>
+      <div class="slide-body">
+        <img src="/api/placeholder/800/400" alt="社区参与">
+        <h3>建立持久关系</h3>
+        <p>邀请加入"工地音频专业人士"Facebook群组</p>
+        <p>鼓励分享使用体验和创新应用方法</p>
+        <p>提供专属社区优惠和新品测试机会</p>
+        <p>建立口碑营销，通过推荐计划发展新客户</p>
+      </div>
+      <div class="slide-footer">
+        <button class="nav-button" onclick="changeSlide(-1)">上一步</button>
+        <button class="nav-button" onclick="changeSlide(1)" style="visibility: hidden;">下一步</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 进度指示器 -->
+  <div class="progress-indicator">
+    <span class="progress-dot active" onclick="goToSlide(1)"></span>
+    <span class="progress-dot" onclick="goToSlide(2)"></span>
+    <span class="progress-dot" onclick="goToSlide(3)"></span>
+    <span class="progress-dot" onclick="goToSlide(4)"></span>
+    <span class="progress-dot" onclick="goToSlide(5)"></span>
+    <span class="progress-dot" onclick="goToSlide(6)"></span>
+    <span class="progress-dot" onclick="goToSlide(7)"></span>
+    <span class="progress-dot" onclick="goToSlide(8)"></span>
+    <span class="progress-dot" onclick="goToSlide(9)"></span>
+    <span class="progress-dot" onclick="goToSlide(10)"></span>
+  </div>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlide(slideIndex);
+
+function changeSlide(n) {
+  showSlide(slideIndex += n);
+}
+
+function goToSlide(n) {
+  showSlide(slideIndex = n);
+}
+
+function showSlide(n) {
+  let i;
+  let slides = document.getElementsByClassName("slide");
+  let dots = document.getElementsByClassName("progress-dot");
+  
+  if (n > slides.length) {slideIndex = slides.length}
+  if (n < 1) {slideIndex = 1}
+  
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  
+  // 更新进度条
+  document.querySelector('.progress-bar').style.width = (slideIndex / slides.length * 100) + '%';
+}
+</script>
+
+</body>
+</html>
